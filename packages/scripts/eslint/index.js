@@ -39,7 +39,6 @@ module.exports = {
     browser: true,
     es2021: true,
     node: true,
-    "jest/globals": true,
   },
   extends: [
     "airbnb/base",
@@ -48,7 +47,7 @@ module.exports = {
     "plugin:prettier/recommended",
     "prettier",
   ],
-  plugins: ["import", "unicorn", "jest", "testing-library", "prettier"],
+  plugins: ["import", "unicorn", "vitest", "testing-library", "prettier"],
   rules: {
     ...commonRules,
     "no-console": 0,
@@ -71,7 +70,6 @@ module.exports = {
             devDependencies: [
               "**/tailwind.config.js",
               "**/vite.config.js",
-              "**/jest.config.js",
               "**/.eslintrc.js",
               "**/config/**",
               "**/scripts/**",
@@ -90,7 +88,7 @@ module.exports = {
         "@typescript-eslint",
         "import",
         // "unicorn",
-        "jest",
+        "vitest",
         "prettier",
       ],
       extends: [
@@ -117,7 +115,7 @@ module.exports = {
         "@typescript-eslint",
         "import",
         // "unicorn",
-        "jest",
+        "vitest",
         "testing-library",
         "tailwindcss",
         "prettier",

@@ -1,6 +1,4 @@
-export function sayHello(name: string) {
-  return `Hello from ${name}`;
-}
+import { sayHello } from "./sayHello";
 
 export function main() {
   // eslint-disable-next-line no-console
