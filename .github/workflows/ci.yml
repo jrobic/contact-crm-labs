@@ -1,0 +1,94 @@
+# https://docs.github.com/en/actions/learn-github-actions/expressions
+
+name: CI
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - /^hotfix/
+    paths-ignore:
+      - "*.md"
+      - ".vscode/**"
+      - ".husky/**"
+      - ".dockerignore"
+      - ".gitignore"
+      - "*.todo"
+      - "infra/**"
+      - "docs/**"
+      - ".github/**"
+  pull_request:
+    paths-ignore:
+      - "*.md"
+      - ".vscode/**"
+      - ".husky/**"
+      - ".dockerignore"
+      - ".gitignore"
+      - "*.todo"
+      - "infra/**"
+      - "docs/**"
+      - ".github/**"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cancel:
+    name: "Cancel Previous Runs"
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    if: github.ref_name != 'develop' && github.ref_name != 'main'
+    steps:
+      - uses: styfle/cancel-workflow-action@0.11.0
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Deps
+        uses: ./.github/node-deps
+
+      - name: Lint
+        run: pnpm run lint
+
+  test-unit:
+    name: Test Unit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Deps
+        uses: ./.github/node-deps
+
+      - name: Test
+        run: pnpm run test:cov
+
+      - name: Search coverage files
+        id: coverage-files
+        run: |
+          echo "COVERAGE_FILES=$(./scripts/search-coverage-files)" >> $GITHUB_OUTPUT
+
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1
+        with:
+          api-token: ${{ secrets.CODACY_API_TOKEN }}
+          coverage-reports: ${{ steps.coverage-files.outputs.COVERAGE_FILES }}
+          
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install Deps
+        uses: ./.github/node-deps
+
+      - name: Build
+        run: pnpm run build

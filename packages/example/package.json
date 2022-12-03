@@ -14,7 +14,7 @@
     "test:hook": "vitest run --changed HEAD~1",
     "test:watch": "vitest",
     "test:ui": "vitest --ui",
-    "test:cov": "vitest --coverage"
+    "test:cov": "vitest run --coverage"
   },
   "keywords": [],
   "author": "Jonathan Robic <hello@jonathanrobic.fr>",

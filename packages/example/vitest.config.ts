@@ -6,6 +6,8 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
-    // ....
+    coverage: {
+      reporter: ["lcov", "html-spa", "text", "text-summary", "json-summary"],
+    },
   },
 });

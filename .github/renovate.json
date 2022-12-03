@@ -1,0 +1,83 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":ignoreUnstable",
+    ":prImmediately",
+    ":autodetectPinVersions",
+    ":prConcurrentLimit20",
+    "group:monorepos",
+    "group:recommended"
+  ],
+  "npm": {
+    "stabilityDays": 3
+  },
+  "lockFileMaintenance": { "enabled": true },
+  "timezone": "Europe/Paris",
+  "labels": ["deps"],
+  "schedule": ["on sunday"],
+  "packageRules": [
+    {
+      "groupName": "typescript",
+      "depTypeList": ["devDependencies"],
+      "matchPackagePatterns": ["typescript"]
+    },
+    {
+      "groupName": "dependencies (minor, patch)",
+      "depTypeList": ["dependencies"],
+      "updateTypes": ["patch", "minor"]
+    },
+    {
+      "groupName": "nest, fastify",
+      "matchPackagePatterns": ["nest", "fastify"],
+      "excludePackageNames": []
+    },
+    {
+      "groupName": "vitest (major)",
+      "matchPackagePatterns": ["vitest"],
+      "updateTypes": ["major"]
+    },
+    {
+      "groupName": "vitest (non-major)",
+      "matchPackagePatterns": ["vitest"],
+      "updateTypes": ["patch", "minor"],
+      "automerge": "true",
+      "platformAutomerge": "true",
+      "automergeType": "true"
+    },
+    {
+      "groupName": "prisma",
+      "matchPackagePatterns": ["prisma"]
+    },
+    {
+      "groupName": "static code analysis (major)",
+      "matchPackagePatterns": ["eslint", "prettier"],
+      "updateTypes": ["major"]
+    },
+    {
+      "groupName": "static code analysis (non-major)",
+      "matchPackagePatterns": ["eslint", "prettier"],
+      "updateTypes": ["patch", "minor"],
+      "automerge": "true",
+      "platformAutomerge": "true",
+      "automergeType": "true"
+    },
+    {
+      "groupName": "devDependencies (non-major)",
+      "automerge": "true",
+      "platformAutomerge": "true",
+      "automergeType": "true",
+      "depTypeList": ["devDependencies"],
+      "updateTypes": ["patch", "minor"],
+      "excludePackageNames": ["typescript"]
+    },
+    {
+      "groupName": "definitelyTyped",
+      "automerge": "true",
+      "platformAutomerge": "true",
+      "automergeType": "true",
+      "packagePatterns": ["^@types/"],
+      "updateTypes": ["patch", "minor"]
+    }
+  ]
+}

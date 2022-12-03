@@ -2,7 +2,14 @@
 
 🌀 This repository is a work in progress and will be completed over time 🚀
 
-# Table of Contents
+## Table of Contents
+
+- [CONTACT CRM LABS (@cclabs)](#contact-crm-labs-cclabs)
+  - [Table of Contents](#table-of-contents)
+  - [The Goals of This Project](#the-goals-of-this-project)
+  - [Plan](#plan)
+  - [Folder Structure](#folder-structure)
+  - [Technologies - Libraries](#technologies---libraries)
 
 ## The Goals of This Project
 
@@ -28,7 +35,7 @@ High-level plan is represented in the Table
 
 ## Folder Structure
 
-```
+```tree
 ├── apps
 │   └── api-node
 │   └── api-golang
@@ -42,7 +49,7 @@ High-level plan is represented in the Table
 ## Technologies - Libraries
 
 > This project is a work in progress, new technologies or libraries will be added over time.
->
+
 - **[`Node`](https://nodejs.org/en/)** - Node.js® is an open-source, cross-platform JavaScript runtime environment.
 - **[`Go`](https://go.dev/)** - Build fast, reliable, and efficient software at scale
 - **[`Rust`](https://www.rust-lang.org/)** - A language empowering everyone to build reliable and efficient software.
