@@ -1,5 +1,7 @@
 # CONTACT CRM LABS (@cclabs)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1a2e6d2968db4bb9a45497aaed55e266)](https://app.codacy.com/gh/jrobic/contact-crm-labs?utm_source=github.com&utm_medium=referral&utm_content=jrobic/contact-crm-labs&utm_campaign=Badge_Grade_Settings)
+
 🌀 This repository is a work in progress and will be completed over time 🚀
 
 ## Table of Contents
