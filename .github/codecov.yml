@@ -1,0 +1,6 @@
+codecov:
+  require_ci_to_pass: yes
+comment:
+  layout: "reach, diff, files, flags"
+  require_base: no
+  require_changes: true

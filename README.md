@@ -6,6 +6,7 @@
 [![Codacy Security Scan](https://github.com/jrobic/contact-crm-labs/actions/workflows/codacy.yml/badge.svg?branch=develop)](https://github.com/jrobic/contact-crm-labs/actions/workflows/codacy.yml)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e18b3e6fe3f54099840f9522eca5b679)](https://www.codacy.com/gh/jrobic/contact-crm-labs/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jrobic/contact-crm-labs&amp;utm_campaign=Badge_Grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/e18b3e6fe3f54099840f9522eca5b679)](https://www.codacy.com/gh/jrobic/contact-crm-labs/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jrobic/contact-crm-labs&utm_campaign=Badge_Coverage)
+[![codecov](https://codecov.io/gh/jrobic/contact-crm-labs/branch/develop/graph/badge.svg?token=JYIBG91WOK)](https://codecov.io/gh/jrobic/contact-crm-labs)
 
 ## Table of Contents
 

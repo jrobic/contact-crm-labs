@@ -3,7 +3,7 @@
   "display": "Default",
   "compilerOptions": {
     "target": "ESNext",
-    "module": "commonjs",
+    "module": "CommonJS",
     "composite": false,
     "declaration": true,
     "declarationMap": true,

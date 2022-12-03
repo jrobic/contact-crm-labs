@@ -6,8 +6,18 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   test: {
+    clearMocks: true,
+    passWithNoTests: true,
+    setupFiles: "./src/setupTests.ts",
     coverage: {
-      reporter: ["lcov", "html-spa", "text", "text-summary", "json-summary"],
+      reporter: [
+        "lcov",
+        "html-spa",
+        "text",
+        "text-summary",
+        "json-summary",
+        "cobertura",
+      ],
     },
   },
 });
