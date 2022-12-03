@@ -1,0 +1,9 @@
+{
+  "extends": "@cclabs/scripts/typescript/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true,
+    "composite": true
+  },
+  "include": ["./src", "vitest.config.ts"]
+}
