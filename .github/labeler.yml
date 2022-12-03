@@ -1,0 +1,20 @@
+apps/api:
+  - apps/api*/*
+apps/client:
+  - apps/client*/*
+
+packages:
+  - packages/**/*
+
+database:
+  - apps/**/*.sql
+
+critical:
+  - apps/**/*.sql
+
+infra:
+  - infra/**/*
+
+docs:
+  - docs/**/*
+  - README.md

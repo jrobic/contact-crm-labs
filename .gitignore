@@ -68,7 +68,6 @@ apps/admin/stats.html
 
 #GCloud
 gcloud-key.json
-supervan-tech-*.json
 
 # Act
 act.secrets

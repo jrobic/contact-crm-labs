@@ -2,7 +2,19 @@
 
 🌀 This repository is a work in progress and will be completed over time 🚀
 
-# Table of Contents
+[![CI](https://github.com/jrobic/contact-crm-labs/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/jrobic/contact-crm-labs/actions/workflows/ci.yml)
+[![Codacy Security Scan](https://github.com/jrobic/contact-crm-labs/actions/workflows/codacy.yml/badge.svg?branch=develop)](https://github.com/jrobic/contact-crm-labs/actions/workflows/codacy.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e18b3e6fe3f54099840f9522eca5b679)](https://www.codacy.com/gh/jrobic/contact-crm-labs/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jrobic/contact-crm-labs&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/e18b3e6fe3f54099840f9522eca5b679)](https://www.codacy.com/gh/jrobic/contact-crm-labs/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jrobic/contact-crm-labs&utm_campaign=Badge_Coverage)
+
+## Table of Contents
+
+- [CONTACT CRM LABS (@cclabs)](#contact-crm-labs-cclabs)
+  - [Table of Contents](#table-of-contents)
+  - [The Goals of This Project](#the-goals-of-this-project)
+  - [Plan](#plan)
+  - [Folder Structure](#folder-structure)
+  - [Technologies - Libraries](#technologies---libraries)
 
 ## The Goals of This Project
 
@@ -28,7 +40,7 @@ High-level plan is represented in the Table
 
 ## Folder Structure
 
-```
+```tree
 ├── apps
 │   └── api-node
 │   └── api-golang
@@ -42,7 +54,7 @@ High-level plan is represented in the Table
 ## Technologies - Libraries
 
 > This project is a work in progress, new technologies or libraries will be added over time.
->
+
 - **[`Node`](https://nodejs.org/en/)** - Node.js® is an open-source, cross-platform JavaScript runtime environment.
 - **[`Go`](https://go.dev/)** - Build fast, reliable, and efficient software at scale
 - **[`Rust`](https://www.rust-lang.org/)** - A language empowering everyone to build reliable and efficient software.
