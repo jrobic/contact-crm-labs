@@ -1,8 +1,10 @@
-import { ContactInMemoryRepository } from "../../modules/contact";
+// import { ContactInMemoryRepository } from "../../modules/contact";
+import { ContactPgRepository } from "../../modules/contact/infrastructure/repository/contact-pg.repository";
 import { newHttpServer } from "../../modules/core/infrastructure/http/server";
 
 export function main() {
-  const contactRepo = new ContactInMemoryRepository();
+  // const contactRepo = new ContactInMemoryRepository();
+  const contactRepo = new ContactPgRepository();
   const app = newHttpServer(contactRepo);
 
   app.listen({ port: 3000 }, (err, address) => {

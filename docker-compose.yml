@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgis/postgis:latest
+    container_name: crm-pg
+    ports:
+      - 5436:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'root']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+    volumes:
+      - crm-postgres:/var/lib/postgresql/data
+    networks:
+      - crm-backend
+
+volumes:
+  crm-postgres:
+  
+networks:
+  crm-backend:
