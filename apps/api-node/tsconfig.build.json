@@ -7,5 +7,5 @@
     "composite": true
   },
   "include": ["./src"],
-  "exclude": ["./src/**/*.spec.ts", "vite.config.ts"]
+  "exclude": ["./src/**/*.spec.ts", "vite.config.ts", "./src/seed.ts"]
 }

@@ -1,9 +1,10 @@
 import { describe, it, expect, vi } from "vitest";
 import crypto from "crypto";
-import { testing } from "../../../../utils";
-import { ContactEntity } from "../../domain";
+import * as testing from "../../../../utils/testing";
+
 import { ContactInMemoryRepository } from "../../infrastructure/repository/contact-inmemory.repository";
 import { newContactUsecases } from "./contact.usecase";
+import { ContactEntity } from "../../../core";
 
 describe("ContactUseCases", () => {
   describe("GetContactUseCase", () => {

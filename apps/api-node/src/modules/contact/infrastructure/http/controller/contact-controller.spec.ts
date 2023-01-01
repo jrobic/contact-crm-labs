@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { testing } from "../../../../../utils";
+import * as testing from "../../../../../utils/testing";
 
 describe("ContactController", () => {
   describe("getAllContact", () => {

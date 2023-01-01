@@ -1,4 +1,5 @@
-import { ContactEntity, ContactProps, ContactRepository } from "../../domain";
+import { ContactProps, ContactEntity } from "../../../core";
+import { ContactRepository } from "../../domain";
 
 export class ContactInMemoryRepository implements ContactRepository {
   private readonly contacts: ContactProps[] = [];

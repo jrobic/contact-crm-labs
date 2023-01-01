@@ -1,5 +1,5 @@
-import { DomainError } from "../../../core";
-import { ContactEntity, ContactRepository } from "../../domain";
+import { ContactEntity, DomainError } from "../../../core";
+import { ContactRepository } from "../../domain";
 
 function removeContactNotFound(id: string) {
   return `Its not possible to remove contact with id '${id}' because it does not exist`;

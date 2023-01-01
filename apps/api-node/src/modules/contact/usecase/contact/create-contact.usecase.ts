@@ -1,8 +1,5 @@
-import {
-  ContactEntity,
-  ContactInputProps,
-  ContactRepository,
-} from "../../domain";
+import { ContactEntity, ContactInputProps } from "../../../core";
+import { ContactRepository } from "../../domain";
 
 export class CreateContactUseCase {
   constructor(private readonly contactRepository: ContactRepository) {}
