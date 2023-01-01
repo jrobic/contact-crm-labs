@@ -1,5 +1,11 @@
-import { Prisma, PrismaClient, prisma } from "../../../core";
-import { ContactEntity, ContactProps, ContactRepository } from "../../domain";
+import {
+  ContactEntity,
+  ContactProps,
+  Prisma,
+  PrismaClient,
+  prisma,
+} from "../../../core";
+import { ContactRepository } from "../../domain";
 
 export class ContactPgRepository implements ContactRepository {
   db: PrismaClient;

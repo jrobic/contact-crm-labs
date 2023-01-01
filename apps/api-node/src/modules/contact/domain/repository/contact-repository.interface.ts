@@ -1,4 +1,4 @@
-import { ContactEntity } from "../entity";
+import { ContactEntity } from "../../../core/domain";
 
 export interface ContactRepository {
   createContact(input: ContactEntity): Promise<ContactEntity>;

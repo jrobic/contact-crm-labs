@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-use-before-define, import/no-extraneous-dependencies */
 import { randomUUID } from "crypto";
 import { expect } from "vitest";
-import { faker } from "@faker-js/faker";
-import { ContactEntity, ContactInMemoryRepository } from "../modules/contact";
-import { newHttpServer } from "../modules/core/infrastructure/http/server";
 
-faker.seed(2023);
+import { ContactInMemoryRepository } from "../modules/contact";
+import { newHttpServer } from "../modules/core/infrastructure/http/server";
+import { ContactEntity } from "../modules/core";
+import { newContactBuilder } from "../modules/core/domain/builder";
+import { faker } from "./faker";
 
 // --------------- SERVER ---------------
 export function initServer(contacts: ContactEntity[] = []) {
@@ -18,19 +19,14 @@ export function initServer(contacts: ContactEntity[] = []) {
 // --------------- CONTACT ---------------
 export function genContactsList(numOfContacts = 2) {
   return range(numOfContacts).map(() => {
-    const firstName = faker.name.firstName();
-    const lastName = faker.name.lastName();
+    const contact = newContactBuilder();
     const createdAt = faker.date.past();
 
     return new ContactEntity({
       id: randomUUID(),
-      firstName,
-      lastName,
-      email: `${firstName}@${lastName}.com`,
-      phone: faker.phone.number("+336########"),
-      deletedAt: null,
       createdAt,
       updatedAt: createdAt,
+      ...contact,
     });
   });
 }
