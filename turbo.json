@@ -21,10 +21,6 @@
       "outputs": [],
       "dependsOn": []
     },
-    "test:cov": {
-      "outputs": ["coverage/**"],
-      "dependsOn": []
-    },
     "clean": {
       "cache": false
     }
