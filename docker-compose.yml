@@ -20,8 +20,61 @@ services:
     networks:
       - crm-backend
 
+  grafana:
+    image: grafana/grafana
+    restart: unless-stopped
+    environment:
+      GF_SECURITY_ADMIN_USER: 'admin'
+      GF_SECURITY_ADMIN_PASSWORD: 'admin'
+      GF_USERS_ALLOW_SIGN_UP: 'false'
+      GF_LOG_LEVEL: 'info'
+    ports:
+      - 5001:3000
+    volumes:
+      - ./infra/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./infra/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - crm-grafana-data:/var/lib/grafana:rw
+    networks:
+      - crm-backend
+
+  prometheus:
+    image: prom/prometheus
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    ports:
+      - 5002:9090
+    volumes:
+      - ./infra/prometheus.yml:/etc/prometheus/prometheus.yml
+      - crm-prometheus-data:/prometheus
+    networks:
+      - crm-backend
+
+  jaeger:
+    image: jaegertracing/all-in-one
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+      COLLECTOR_OTLP_ENABLED: true
+    ports:
+      - 6831:6831/udp
+      - 6832:6832/udp
+      - 5778:5778
+      - 5003:16686
+      - 4317:4317
+      - 4318:4318
+      - 14250:14250
+      - 14268:14268
+      - 14269:14269
+      - 9411:9411
+    networks:
+      - crm-backend
+
 volumes:
   crm-postgres:
-  
+  crm-prometheus-data:
+  crm-grafana-data:
 networks:
   crm-backend:

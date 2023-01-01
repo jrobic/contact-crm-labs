@@ -1,4 +1,10 @@
-// import { ContactInMemoryRepository } from "../../modules/contact";
+/* eslint-disable import/first */
+// eslint-disable-next-line import/order
+import { registerTracing } from "../../modules/core/infrastructure/http/otel";
+
+// need to be loaded before any other import
+registerTracing();
+
 import { ContactPgRepository } from "../../modules/contact/infrastructure/repository/contact-pg.repository";
 import { newHttpServer } from "../../modules/core/infrastructure/http/server";
 
