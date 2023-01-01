@@ -2,7 +2,7 @@
 /* c8 ignore start */
 /* eslint-disable import/no-extraneous-dependencies */
 import PromisePool from "@supercharge/promise-pool";
-import { ContactPgRepository } from "./modules/contact/infrastructure/repository/contact-pg.repository";
+import { ContactPrismaRepository } from "./modules/contact/infrastructure/repository/contact-prisma.repository";
 import { ContactEntity, prisma } from "./modules/core";
 import { newContactBuilder } from "./modules/core/domain/builder";
 
@@ -33,7 +33,7 @@ async function dropData() {
 async function seed() {
   const pool = PromisePool.withConcurrency(20);
 
-  const repo = new ContactPgRepository();
+  const repo = new ContactPrismaRepository();
 
   // inject lots of contacts in the database
   const range = [...Array(5000).keys()];

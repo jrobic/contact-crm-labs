@@ -1,65 +1,39 @@
-import {
-  ContactEntity,
-  ContactProps,
-  Prisma,
-  PrismaClient,
-  prisma,
-} from "../../../core";
+/* eslint-disable class-methods-use-this */
+import { ContactEntity, ContactProps } from "../../../core";
+import { getPGClient } from "../../../core/infrastructure/db/pg";
 import { ContactRepository } from "../../domain";
 
-export class ContactPgRepository implements ContactRepository {
-  db: PrismaClient;
+export class ContactPGRepository implements ContactRepository {
+  db: ReturnType<typeof getPGClient>;
 
   constructor() {
-    this.db = prisma;
+    this.db = getPGClient();
+  }
+
+  findContact({ id }: { id: string }): Promise<ContactEntity | null> {
+    throw new Error("Method not implemented.");
+  }
+
+  updateContact(
+    id: string,
+    input: Partial<ContactEntity>
+  ): Promise<ContactEntity | null> {
+    throw new Error("Method not implemented.");
+  }
+
+  createContact(input: ContactEntity): Promise<ContactEntity> {
+    throw new Error("Method not implemented.");
   }
 
   private static toContactEntity(contact: ContactProps): ContactEntity {
     return new ContactEntity(contact);
   }
 
-  async createContact(input: ContactEntity): Promise<ContactEntity> {
-    const contact = await this.db.contact.create({ data: input });
-
-    return ContactPgRepository.toContactEntity(contact);
-  }
-
   async findAllContacts(): Promise<ContactEntity[]> {
-    const contacts = await this.db.contact.findMany({
-      orderBy: { createdAt: "desc" },
-    });
+    const { rows: contacts } = await this.db.query<ContactProps>(
+      `SELECT * FROM "Contact" ORDER BY "Contact"."createdAt" DESC`
+    );
 
-    return contacts.map(ContactPgRepository.toContactEntity);
-  }
-
-  async findContact({ id }: { id: string }): Promise<ContactEntity | null> {
-    const contact = await this.db.contact.findUnique({ where: { id } });
-
-    if (!contact) {
-      return null;
-    }
-
-    return ContactPgRepository.toContactEntity(contact);
-  }
-
-  async updateContact(
-    id: string,
-    input: Partial<ContactProps>
-  ): Promise<ContactEntity | null> {
-    try {
-      const contactUpdated = await this.db.contact.update({
-        where: { id },
-        data: input,
-      });
-
-      return ContactPgRepository.toContactEntity(contactUpdated);
-    } catch (error) {
-      if (error instanceof Prisma.PrismaClientKnownRequestError) {
-        if (error.code === "P2001") {
-          return null;
-        }
-      }
-      throw error;
-    }
+    return contacts.map(ContactPGRepository.toContactEntity);
   }
 }
