@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "clean": "rimraf .turbo dist build *.tsbuildinfo",
-    "start": "node dist/index.js",
+    "start": "node dist/cmd/http/main.js",
     "dev": "tsnd --files --respawn --cls --exit-child src/cmd/http/main.ts",
     "build": "tsc -p tsconfig.build.json",
     "lint": "eslint \"src/**/*.ts?(x)\" && tsc --noEmit",

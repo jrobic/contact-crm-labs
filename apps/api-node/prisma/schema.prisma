@@ -21,4 +21,6 @@ model Contact {
   lastName  String
   email     String
   phone     String
+
+  @@index([createdAt])
 }
